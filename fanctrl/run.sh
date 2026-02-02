@@ -44,9 +44,8 @@ export FANCTRL_CONFIG="/tmp/fanctrl_generated.toml"
 echo "System Check..."
 python3 --version
 ls -l /dev/gpio* || echo "No GPIO devices found in /dev"
-which fanctrl || echo "fanctrl not found in PATH"
-ls -l /usr/bin/fanctrl || ls -l /usr/local/bin/fanctrl || echo "fanctrl not found in common bins"
+pip list | grep fanctrl || echo "fanctrl not found in pip list"
 
 echo "Starting FanCtrl..."
-# Run fanctrl with debug if possible or just exec
-exec fanctrl
+# Use python3 -m to avoid PATH issues with pip binaries
+exec python3 -m fanctrl.main
