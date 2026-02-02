@@ -1,29 +1,12 @@
 #!/bin/sh
-set -e
-
-CONFIG_PATH="/data/options.json"
-
-# In a real HA Add-on, options are at /data/options.json.
-# We need to map these to what fanctrl expects.
-# Our refactored fanctrl uses one TOML config file OR env vars? 
-# The refactored main.py loads from FANCTRL_CONFIG or /config/config.toml.
-# HA options.json is flat JSON. We can create a toml from it or pass env vars.
-
-# Let's generate a toml config from the json options
-echo "Generating config from options.json..."
+# Generate config (no set -e yet)
+echo "Generating config..."
 python3 -c '
 import json
-import tomllib
 import sys
-
-# Minimal converter
 try:
     with open("/data/options.json", "r") as f:
         opts = json.load(f)
-    
-    # Map flat options to [fan] section
-    # Note: validation happens in fanctrl
-    
     print("[fan]")
     for k, v in opts.items():
         if isinstance(v, bool):
@@ -33,19 +16,19 @@ try:
         else:
             val = f"\"{v}\""
         print(f"{k} = {val}")
-
 except Exception as e:
-    print(f"Error converting options: {e}", file=sys.stderr)
+    print(f"Error: {e}", file=sys.stderr)
     sys.exit(1)
-' > /tmp/fanctrl_generated.toml
+' > /tmp/fanctrl.toml
 
-export FANCTRL_CONFIG="/tmp/fanctrl_generated.toml"
+export FANCTRL_CONFIG="/tmp/fanctrl.toml"
 
-echo "System Check..."
+echo "System Status:"
 python3 --version
-ls -l /dev/gpio* || echo "No GPIO devices found in /dev"
-pip list | grep fanctrl || echo "fanctrl not found in pip list"
+ls -l /dev/gpio* || echo "Check /dev/gpio* failed"
+pip list | grep fan -i || echo "fanctrl not found in pip"
+python3 -c "import fanctrl; print('fanctrl module ok')" || echo "fanctrl module import failed"
 
-echo "Starting FanCtrl..."
-# Use python3 -m to avoid PATH issues with pip binaries
+echo "Starting Application..."
+set -e
 exec python3 -m fanctrl.main

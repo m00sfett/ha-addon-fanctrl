@@ -1,5 +1,5 @@
 name: "FanCtrl"
-version: "0.3.18"
+version: "0.3.19"
 slug: "fanctrl"
 description: "Temperature-based fan control via GPIO (gpiod)"
 url: "https://github.com/m00sfett/ha-addon-fanctrl"
@@ -14,6 +14,14 @@ gpio: true
 devicetree: true
 apparmor: false
 full_access: true
+devices:
+  - /dev/gpiomem:/dev/gpiomem
+  - /dev/mem:/dev/mem
+  - /dev/gpiochip0:/dev/gpiochip0
+  - /dev/gpiochip1:/dev/gpiochip1
+  - /dev/gpiochip2:/dev/gpiochip2
+  - /dev/gpiochip3:/dev/gpiochip3
+  - /dev/gpiochip4:/dev/gpiochip4
 privileged:
   - SYS_RAWIO
 options:
