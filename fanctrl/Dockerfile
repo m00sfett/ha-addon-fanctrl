@@ -9,6 +9,7 @@ RUN apk add --no-cache \
     python3 \
     py3-pip \
     libgpiod \
+    bash \
     git \
     build-base \
     libgpiod-dev \
@@ -17,8 +18,8 @@ RUN apk add --no-cache \
 WORKDIR /app
 
 # Install gpiod python bindings via pip (to avoid missing apk package 'py3-gpiod')
-# And install the core package from GitHub (Pinned to v0.3.8)
-RUN pip install --break-system-packages gpiod git+https://github.com/m00sfett/fanctrl.git@v0.3.9
+# And install the core package from GitHub (Pinned to v0.3.10)
+RUN pip install --break-system-packages gpiod git+https://github.com/m00sfett/fanctrl.git@v0.3.10
 
 # Copy Add-on scripts
 COPY run.sh /app/run.sh
