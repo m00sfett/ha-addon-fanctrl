@@ -11,8 +11,8 @@ RUN apk add --no-cache libgpiod
 
 WORKDIR /app
 
-# Install the core package from GitHub (Pinned to v0.3.1)
-RUN pip install git+https://github.com/m00sfett/fanctrl.git@v0.3.1
+# Install the core package from GitHub (Pinned to v0.3.2)
+RUN pip install git+https://github.com/m00sfett/fanctrl.git@v0.3.2
 
 # Copy Add-on scripts
 COPY run.sh /app/run.sh
