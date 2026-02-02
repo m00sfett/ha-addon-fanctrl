@@ -6,17 +6,19 @@ ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base:latest
 FROM python:3.11-alpine
 
 # Install system dependencies
-# libgpiod-dev and build tools are needed for gpiod python package
-# git is needed for pip install from github
+# libgpiod and python bindings
 RUN apk add --no-cache \
     libgpiod \
     py3-gpiod \
-    git
+    git \
+    build-base \
+    libgpiod-dev \
+    python3-dev
 
 WORKDIR /app
 
-# Install the core package from GitHub (Pinned to v0.3.3)
-RUN pip install git+https://github.com/m00sfett/fanctrl.git@v0.3.3
+# Install the core package from GitHub (Pinned to v0.3.4)
+RUN pip install git+https://github.com/m00sfett/fanctrl.git@v0.3.4
 
 # Copy Add-on scripts
 COPY run.sh /app/run.sh
