@@ -1,5 +1,5 @@
 name: "FanCtrl"
-version: "0.3.5"
+version: "0.3.6"
 slug: "fanctrl"
 description: "Temperature-based fan control via GPIO (gpiod)"
 url: "https://github.com/m00sfett/ha-addon-fanctrl"
@@ -26,6 +26,5 @@ schema:
   temp_off_c: float
   min_switch_s: float
   active_high: bool
-image: "docker.io/library/alpine-python-fanctrl" 
 # Use 'local' build argument or similar in real repo
 init: false
