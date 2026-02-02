@@ -1,13 +1,13 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base:latest
-# We use the generic HA base image or python. 
-# Using python:3.11-alpine is easier for standalone, but HA addons usually use the build_from arg.
-# Let's use python alpine for simplicity as requested in plan "Base image (alpine/python)"
-
-FROM python:3.11-alpine
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
 # Install system dependencies
-# libgpiod and python bindings
+# We need python3 and pip (some base images might not have them)
+# build-base, libgpiod-dev and python3-dev are needed for gpiod/logic compilation
+# git is needed for pip install from github
 RUN apk add --no-cache \
+    python3 \
+    py3-pip \
     libgpiod \
     py3-gpiod \
     git \
@@ -17,8 +17,8 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
-# Install the core package from GitHub (Pinned to v0.3.4)
-RUN pip install git+https://github.com/m00sfett/fanctrl.git@v0.3.4
+# Install the core package from GitHub (Pinned to v0.3.5)
+RUN pip install --break-system-packages git+https://github.com/m00sfett/fanctrl.git@v0.3.5
 
 # Copy Add-on scripts
 COPY run.sh /app/run.sh

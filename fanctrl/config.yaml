@@ -1,5 +1,5 @@
 name: "FanCtrl"
-version: "0.3.4"
+version: "0.3.5"
 slug: "fanctrl"
 description: "Temperature-based fan control via GPIO (gpiod)"
 url: "https://github.com/m00sfett/ha-addon-fanctrl"
