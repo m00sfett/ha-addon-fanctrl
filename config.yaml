@@ -1,0 +1,31 @@
+name: "FanCtrl"
+version: "0.3.0"
+slug: "fanctrl"
+description: "Temperature-based fan control via GPIO (gpiod)"
+url: "https://github.com/yourusername/fanctrl"
+startup: "services"
+arch:
+  - aarch64
+  - amd64
+  - armv7
+map:
+  - config:rw
+options:
+  gpio_chip: "gpiochip0"
+  gpio_pin: 33
+  poll_interval_s: 5.0
+  temp_on_c: 55.0
+  temp_off_c: 45.0
+  min_switch_s: 10.0
+  active_high: true
+schema:
+  gpio_chip: str
+  gpio_pin: int
+  poll_interval_s: float
+  temp_on_c: float
+  temp_off_c: float
+  min_switch_s: float
+  active_high: bool
+image: "docker.io/library/alpine-python-fanctrl" 
+# Use 'local' build argument or similar in real repo
+init: false
