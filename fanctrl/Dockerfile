@@ -19,10 +19,10 @@ WORKDIR /app
 
 # Install gpiod python bindings via pip (to avoid missing apk package 'py3-gpiod')
 # And install the core package from GitHub (Pinned to v0.3.10)
-RUN pip install --break-system-packages gpiod git+https://github.com/m00sfett/fanctrl.git@v0.3.13
+RUN pip install --break-system-packages gpiod git+https://github.com/m00sfett/fanctrl.git@v0.3.14
 
 # Copy Add-on scripts
-COPY run.sh /app/run.sh
-RUN chmod +x /app/run.sh
+COPY run.sh /usr/bin/run.sh
+RUN chmod +x /usr/bin/run.sh
 
-CMD [ "/app/run.sh" ]
+CMD [ "/usr/bin/run.sh" ]
