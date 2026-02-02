@@ -11,10 +11,8 @@ RUN apk add --no-cache libgpiod
 
 WORKDIR /app
 
-# Copy the core package (Expecting it to be placed in 'core_pkg' dir for build)
-# In real production, this would be 'RUN pip install fanctrl'
-COPY core_pkg/ /usr/src/fanctrl/
-RUN pip install /usr/src/fanctrl/
+# Install the core package from GitHub
+RUN pip install git+https://github.com/m00sfett/fanctrl.git@main
 
 # Copy Add-on scripts
 COPY run.sh /app/run.sh

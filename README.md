@@ -33,4 +33,4 @@ Check the Add-on **Logs** tab.
 - **`GPIO chip not found`**: Ensure the container has access to `/dev/gpiochipX`.
 
 ## Note
-This add-on depends on the [fanctrl core package](../fanctrl).
+This add-on depends on the [fanctrl core package](https://github.com/m00sfett/fanctrl).
