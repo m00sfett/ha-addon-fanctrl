@@ -41,5 +41,10 @@ except Exception as e:
 
 export FANCTRL_CONFIG="/tmp/fanctrl_generated.toml"
 
+echo "System Check..."
+python3 --version
+which fanctrl || echo "fanctrl not found in PATH"
+ls -l /usr/bin/fanctrl || ls -l /usr/local/bin/fanctrl || echo "fanctrl not found in common bins"
+
 echo "Starting FanCtrl..."
 exec fanctrl
