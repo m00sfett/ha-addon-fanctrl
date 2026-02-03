@@ -23,6 +23,8 @@ except Exception as e:
 
 export FANCTRL_CONFIG="/tmp/fanctrl.toml"
 
+export PYTHONUNBUFFERED=1
+
 echo "System Status:"
 python3 --version
 ls -l /dev/gpio* || echo "Check /dev/gpio* failed"
@@ -31,4 +33,4 @@ python3 -c "import fanctrl; print('fanctrl module ok')" || echo "fanctrl module 
 
 echo "Starting Application..."
 set -e
-exec python3 -m fanctrl.main
+exec python3 -u -m fanctrl.main
