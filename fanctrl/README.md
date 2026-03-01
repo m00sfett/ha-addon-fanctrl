@@ -27,6 +27,10 @@ This add-on requires access to the GPIO hardware.
 - It uses `libgpiod`.
 - In Home Assistant OS on Raspberry Pi, this is typically handled automatically by the add-on permission request (`gpio`).
 
+## Status Endpoint
+The core service exposes a status endpoint (default port `9101`):
+`GET http://<homeassistant-host>:9101/status`
+
 ## Troubleshooting
 Check the Add-on **Logs** tab.
 - **`gpiod import failed`**: Means the underlying system library is missing or incompatible.
