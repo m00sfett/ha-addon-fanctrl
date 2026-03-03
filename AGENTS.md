@@ -18,11 +18,16 @@ Bei jeder Core-Aenderung, die in Home Assistant ankommen soll, immer das Add-on 
 3. `CHANGELOG.md`
 - Abschnitt fuer dieselbe Version anlegen und kurz beschreiben, was neu ist.
 
+4. `README.md`
+- Versionszeile oben pflegen:
+  `**Version:** \`<version>\``
+
 ## Konsistenz (Pflicht)
 Vor Commit muessen diese drei Versionen uebereinstimmen:
 - `fanctrl/config.yaml` -> `version`
 - `fanctrl/Dockerfile` -> `@<version>`
 - `CHANGELOG.md` -> Abschnitt `## <version> - <datum>`
+- `README.md` -> `**Version:** \`<version>\``
 
 Zusatz:
 - `fanctrl/config.yaml` muss einen `changelog`-Block mit derselben Version enthalten, damit Home Assistant Release-Notes anzeigen kann.

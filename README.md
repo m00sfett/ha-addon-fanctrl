@@ -1,14 +1,20 @@
-# m00sfett's Home Assistant Add-ons
+# FanCtrl Home Assistant Add-on
 
-This is a Home Assistant Add-on repository.
+**Version:** `0.5.1`
 
-## Add-ons included:
-- **[FanCtrl](fanctrl/)**: Temperature-based fan control via GPIO.
+This repository provides one Home Assistant add-on: **FanCtrl**.
 
-## How to use:
-Copy the URL of this repository into your Home Assistant Add-on Store settings.
+## Install
+1. Open Home Assistant.
+2. Go to **Settings -> Add-ons -> Add-on Store**.
+3. Add this repository URL as a custom add-on repository:
+   `https://github.com/m00sfett/ha-addon-fanctrl`
+4. Install **FanCtrl**.
 
-## Release Notes in Home Assistant
-Home Assistant shows update notes from the `changelog` block in `fanctrl/config.yaml`.
+## Update Notes in Home Assistant
+Home Assistant shows release notes from the `changelog` block in
+[`fanctrl/config.yaml`](fanctrl/config.yaml).
 
-Release process and required version consistency are documented in `AGENTS.md`.
+## Maintenance Rules
+Release workflow and consistency requirements are documented in
+[`AGENTS.md`](AGENTS.md).
