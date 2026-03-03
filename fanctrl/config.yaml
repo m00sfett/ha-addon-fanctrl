@@ -42,13 +42,13 @@ schema:
   active_high: bool
 changelog:
   "0.5.2": |
-    - Core-Paket auf fanctrl 0.5.2 aktualisiert.
-    - AGENTS.md aus Repository entfernt und per .gitignore ausgeschlossen.
+    - Updated core package pin to fanctrl 0.5.2.
+    - Removed AGENTS.md from repository and excluded it via .gitignore.
   "0.5.1": |
-    - Core-Paket auf fanctrl 0.5.1 aktualisiert.
-    - Anzeige von Release-Notes im Home Assistant Add-on Store aktiviert.
-    - Metadaten-Pruefung fuer Version/Changelog hinzugefuegt.
+    - Updated core package pin to fanctrl 0.5.1.
+    - Enabled release notes display in the Home Assistant Add-on Store.
+    - Added metadata validation for version/changelog consistency.
   "0.5.0": |
-    - Add-on auf fanctrl 0.5.0 aktualisiert.
+    - Updated add-on to fanctrl 0.5.0.
 # Use 'local' build argument or similar in real repo
 init: false
