@@ -1,6 +1,6 @@
 # FanCtrl Home Assistant Add-on
 
-**Version:** `0.5.2`
+**Version:** `0.5.3`
 
 This repository provides one Home Assistant add-on: **FanCtrl**.
 It packages the core [`fanctrl`](https://github.com/m00sfett/fanctrl)
@@ -15,11 +15,12 @@ logic through a simple add-on configuration.
 
 ## Install
 1. Open Home Assistant.
-2. Go to **Settings -> Add-ons -> Add-on Store**.
-3. Add this repository URL as a custom add-on repository:
+2. Go to **Settings -> Apps**.
+3. Open the menu in the top-right and choose **Repositories**.
+4. Add this repository URL as a custom repository:
    `https://github.com/m00sfett/ha-addon-fanctrl`
-4. Install **FanCtrl**.
-5. Start the add-on.
+5. Install **FanCtrl**.
+6. Start the app.
 
 ## Configuration
 Configure the add-on in Home Assistant under **Configuration**:

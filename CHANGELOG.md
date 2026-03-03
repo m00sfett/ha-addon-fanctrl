@@ -2,6 +2,10 @@
 
 All notable changes to this repository are documented in this file.
 
+## 0.5.3 - 2026-03-03
+- Updated documentation to match current Home Assistant "Apps" navigation.
+- Core package pin in add-on image updated to `fanctrl` `0.5.3`.
+
 ## 0.5.2 - 2026-03-03
 - Core package pin in add-on image updated to `fanctrl` `0.5.2`.
 - `AGENTS.md` removed from repository and excluded via `.gitignore`.
