@@ -1,6 +1,6 @@
 # FanCtrl Home Assistant Add-on
 
-**Version:** `0.5.1`
+**Version:** `0.5.2`
 
 This repository provides one Home Assistant add-on: **FanCtrl**.
 
@@ -16,5 +16,7 @@ Home Assistant shows release notes from the `changelog` block in
 [`fanctrl/config.yaml`](fanctrl/config.yaml).
 
 ## Maintenance Rules
-Release workflow and consistency requirements are documented in
-[`AGENTS.md`](AGENTS.md).
+Keep versions aligned across:
+- `fanctrl/config.yaml` -> `version`
+- `fanctrl/Dockerfile` -> `git+...@<version>`
+- `CHANGELOG.md` -> section for the same version

@@ -12,3 +12,6 @@ env/
 # IDE
 .idea/
 .vscode/
+
+# Local agent instructions (not tracked)
+AGENTS.md

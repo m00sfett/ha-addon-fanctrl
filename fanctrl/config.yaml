@@ -1,5 +1,5 @@
 name: "FanCtrl"
-version: "0.5.1"
+version: "0.5.2"
 slug: "fanctrl"
 description: "Temperature-based fan control via GPIO (gpiod)"
 url: "https://github.com/m00sfett/ha-addon-fanctrl"
@@ -41,6 +41,9 @@ schema:
   min_switch_s: float
   active_high: bool
 changelog:
+  "0.5.2": |
+    - Core-Paket auf fanctrl 0.5.2 aktualisiert.
+    - AGENTS.md aus Repository entfernt und per .gitignore ausgeschlossen.
   "0.5.1": |
     - Core-Paket auf fanctrl 0.5.1 aktualisiert.
     - Anzeige von Release-Notes im Home Assistant Add-on Store aktiviert.
