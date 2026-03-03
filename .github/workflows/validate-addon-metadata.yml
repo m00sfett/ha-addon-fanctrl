@@ -1,0 +1,42 @@
+name: Validate Add-on Metadata
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - release/**
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate version pin and changelog entry
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION="$(sed -nE 's/^version: "([0-9]+\.[0-9]+\.[0-9]+)"/\1/p' fanctrl/config.yaml)"
+          if [ -z "${VERSION}" ]; then
+            echo "Could not parse version from fanctrl/config.yaml" >&2
+            exit 1
+          fi
+
+          if ! grep -q "git+https://github.com/m00sfett/fanctrl.git@${VERSION}" fanctrl/Dockerfile; then
+            echo "Dockerfile pin does not match config.yaml version ${VERSION}" >&2
+            exit 1
+          fi
+
+          if ! grep -q "^[[:space:]]\\+\"${VERSION}\":" fanctrl/config.yaml; then
+            echo "config.yaml changelog has no entry for version ${VERSION}" >&2
+            exit 1
+          fi
+
+          if ! grep -q "^## ${VERSION} - " CHANGELOG.md; then
+            echo "CHANGELOG.md has no section for version ${VERSION}" >&2
+            exit 1
+          fi
+
+          echo "Metadata valid for version ${VERSION}"
