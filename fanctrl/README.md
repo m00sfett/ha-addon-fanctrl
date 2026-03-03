@@ -1,16 +1,17 @@
-# Home Assistant Add-on: FanCtrl
+# Home Assistant App: FanCtrl
 
-A Home Assistant Add-on to control fans connected via GPIO, using `libgpiod`. This add-on wraps the core `fanctrl` Python package.
+A Home Assistant app to control fans connected via GPIO, using `libgpiod`. This app wraps the core `fanctrl` Python package.
 
 ## Installation
 
-1.  Navigate to your Home Assistant Add-on Store.
-2.  (If using a custom repository) Add the URL of this repository.
-3.  Click **Install** on the FanCtrl add-on.
+1. Navigate to **Settings -> Apps**.
+2. Open the top-right menu and choose **Repositories**.
+3. Add this repository URL (if not already added): `https://github.com/m00sfett/ha-addon-fanctrl`
+4. Install **FanCtrl** and start the app.
 
 ## Configuration
 
-The add-on is configured via the **Configuration** tab in Home Assistant.
+The app is configured via the **Configuration** tab in Home Assistant.
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
@@ -23,18 +24,18 @@ The add-on is configured via the **Configuration** tab in Home Assistant.
 | `min_switch_s` | float | `10.0` | Minimum time to stay in a state before switching again (prevents rapid toggling). |
 
 ## Hardware Access
-This add-on requires access to the GPIO hardware.
+This app requires access to the GPIO hardware.
 - It uses `libgpiod`.
 - In Home Assistant OS on Raspberry Pi, this is typically handled automatically by the add-on permission request (`gpio`).
 
 ## Status Endpoint
-The core service exposes a status endpoint (default port `9101`):
-`GET http://<homeassistant-host>:9101/status`
+The core service exposes a local status endpoint on port `9101` inside the container.
+Home Assistant does not expose this endpoint externally by default.
 
 ## Troubleshooting
-Check the Add-on **Logs** tab.
+Check the app **Logs** tab.
 - **`gpiod import failed`**: Means the underlying system library is missing or incompatible.
 - **`GPIO chip not found`**: Ensure the container has access to `/dev/gpiochipX`.
 
 ## Note
-This add-on depends on the [fanctrl core package](https://github.com/m00sfett/fanctrl).
+This app depends on the [fanctrl core package](https://github.com/m00sfett/fanctrl).

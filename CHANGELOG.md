@@ -2,6 +2,11 @@
 
 All notable changes to this repository are documented in this file.
 
+## 0.5.4 - 2026-03-03
+- Fixed core fallback config path to `/config/fanctrl.toml`.
+- Hardened app security profile (AppArmor enabled, no full access, no `/dev/mem`/`/dev/gpiomem`, no `SYS_RAWIO`).
+- Updated add-on docs to current Home Assistant Apps navigation and clarified status endpoint scope.
+
 ## 0.5.3 - 2026-03-03
 - Updated documentation to match current Home Assistant "Apps" navigation.
 - Core package pin in add-on image updated to `fanctrl` `0.5.3`.

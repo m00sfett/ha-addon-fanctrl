@@ -1,6 +1,6 @@
 # FanCtrl Home Assistant Add-on
 
-**Version:** `0.5.3`
+**Version:** `0.5.4`
 
 This repository provides one Home Assistant add-on: **FanCtrl**.
 It packages the core [`fanctrl`](https://github.com/m00sfett/fanctrl)
@@ -41,8 +41,9 @@ Configure the add-on in Home Assistant under **Configuration**:
 - Typical target: Raspberry Pi with Home Assistant OS.
 
 ## Status Endpoint
-- URL: `http://<homeassistant-host>:9101/status`
-- Returns JSON with current temperature, fan state, thresholds, and service version.
+- Internally, the app exposes `http://127.0.0.1:9101/status` inside the container.
+- Home Assistant does not expose this endpoint externally by default, and normal app usage does not require it.
+- If you need external status access (for example behind a custom reverse proxy), you must add explicit network routing yourself.
 
 ## Update Notes in Home Assistant
 Home Assistant shows release notes from the `changelog` block in
