@@ -1,6 +1,6 @@
 # FanCtrl Home Assistant Add-on
 
-**Version:** `0.5.4`
+**Version:** `1.0.0`
 
 This repository provides one Home Assistant add-on: **FanCtrl**.
 It packages the core [`fanctrl`](https://github.com/m00sfett/fanctrl)
@@ -12,6 +12,10 @@ logic through a simple add-on configuration.
 - Uses `libgpiod` GPIO access
 - Exposes the status endpoint on port `9101`
 - Supports configurable GPIO chip/line and switching timings
+
+## Tested Platforms
+- Home Assistant Add-on tested on Raspberry Pi 4.
+- No verified results yet for x86_64 or other architectures.
 
 ## Install
 1. Open Home Assistant.
@@ -42,6 +46,7 @@ Configure the add-on in Home Assistant under **Configuration**:
 
 ## Status Endpoint
 - Internally, the app exposes `http://127.0.0.1:9101/status` inside the container.
+- Services on the same internal network (for example a DockerServer overview service) can query it through container networking.
 - Home Assistant does not expose this endpoint externally by default, and normal app usage does not require it.
 - If you need external status access (for example behind a custom reverse proxy), you must add explicit network routing yourself.
 

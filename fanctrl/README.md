@@ -2,6 +2,10 @@
 
 A Home Assistant app to control fans connected via GPIO, using `libgpiod`. This app wraps the core `fanctrl` Python package.
 
+## Tested Platforms
+- Home Assistant app tested on Raspberry Pi 4.
+- No verified results yet for x86_64 or other architectures.
+
 ## Installation
 
 1. Navigate to **Settings -> Apps**.
@@ -30,6 +34,7 @@ This app requires access to the GPIO hardware.
 
 ## Status Endpoint
 The core service exposes a local status endpoint on port `9101` inside the container.
+Services on the same internal network can query it via container networking.
 Home Assistant does not expose this endpoint externally by default.
 
 ## Troubleshooting

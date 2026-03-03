@@ -1,12 +1,11 @@
 name: "FanCtrl"
-version: "0.5.4"
+version: "1.0.0"
 slug: "fanctrl"
 description: "Temperature-based fan control via GPIO (gpiod)"
 url: "https://github.com/m00sfett/ha-addon-fanctrl"
 startup: "services"
 arch:
   - aarch64
-  - amd64
   - armv7
 map:
   - config:rw
@@ -37,22 +36,9 @@ schema:
   min_switch_s: float
   active_high: bool
 changelog:
-  "0.5.4": |
-    - Fixed core fallback config path to `/config/fanctrl.toml`.
-    - Hardened app security profile (AppArmor enabled, no full access, no `/dev/mem`/`/dev/gpiomem`, no `SYS_RAWIO`).
-    - Updated add-on docs to current Home Assistant Apps navigation and clarified status endpoint scope.
-  "0.5.3": |
-    - Updated Home Assistant navigation in docs from Add-ons to Apps.
-    - Updated core package pin to fanctrl 0.5.3.
-    - Reduced app privileges (no full access, no /dev/mem, no SYS_RAWIO).
-  "0.5.2": |
-    - Updated core package pin to fanctrl 0.5.2.
-    - Removed AGENTS.md from repository and excluded it via .gitignore.
-  "0.5.1": |
-    - Updated core package pin to fanctrl 0.5.1.
-    - Enabled release notes display in the Home Assistant Add-on Store.
-    - Added metadata validation for version/changelog consistency.
-  "0.5.0": |
-    - Updated add-on to fanctrl 0.5.0.
+  "1.0.0": |
+    - Initial stable release of the Home Assistant FanCtrl app.
+    - Wraps fanctrl core 1.0.0 with configurable GPIO and thermal thresholds.
+    - Includes local status endpoint support for same-network service integrations.
 # Use 'local' build argument or similar in real repo
 init: false
